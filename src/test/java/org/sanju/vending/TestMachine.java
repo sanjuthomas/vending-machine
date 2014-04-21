@@ -45,6 +45,25 @@ public class TestMachine {
 		machine.getKeyboard().cancel();
 	}
 	
+	@Test
+	public void shouldEjectCola() throws ProductOutOfStockException, InvalidCoinException{
+		setupCola();
+		machine.getKeyboard().one();
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+	}
+	
+	@Test
+	public void shouldEjectCoinWhenNoExactChange() throws ProductOutOfStockException, InvalidCoinException{
+		setupCandy();
+		machine.getKeyboard().three();
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+		machine.acceptCoin(new Coin(CoinType.QUARTER));
+	}
+	
 	/**
 	 * 
 	 */
@@ -55,6 +74,19 @@ public class TestMachine {
 		product.setCode(1);
 		product.setName("Cola");
 		product.setPrice(1.0);
+		for(int i=0; i<5; i++){
+			products.add(product);
+		}
+		machine.loadProducts(products);
+	}
+	
+	private void setupCandy(){
+		
+		final List<Product> products = new ArrayList<Product>();
+		final Product product = new Product();
+		product.setCode(3);
+		product.setName("Candy");
+		product.setPrice(.65);
 		for(int i=0; i<5; i++){
 			products.add(product);
 		}

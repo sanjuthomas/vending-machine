@@ -18,7 +18,7 @@ public class MachineState {
 	
 	private State state = State.NO_CHANGE_DEFAULT;
 	
-	private Product product;
+	private Product product = new Product();
 	
 	private Double amount = 0.0;
 	
@@ -66,5 +66,22 @@ public class MachineState {
 		for(final Subscriber subscriber : subscribers){
 			subscriber.udpate(this);
 		}
+	}
+	
+	public Boolean readyToDisposeProduct(){
+		if(product.getPrice().doubleValue() == amount.doubleValue()){
+			state = State.PRODUCT_READEY_TO_BE_DISPOSED;
+			return true;
+		}
+		return false;
+	}
+	
+	public void productDisposed() throws InterruptedException{
+		state = State.PRODUCT_DISPOSED;
+		amount = 0.0;
+		updateSubscribers();
+		Thread.sleep(3000);
+		state = State.NO_CHANGE_DEFAULT;
+		updateSubscribers();
 	}
 }

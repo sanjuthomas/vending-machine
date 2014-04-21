@@ -39,7 +39,7 @@ public class CoinInputter {
 	}
 	
 	public List<Coin> returnMoney(){
-		List<Coin> temp = coins;
+		final List<Coin> temp = coins;
 		coins = new ArrayList<Coin>();
 		currentAmount = new Double(0.0);
 		return temp;

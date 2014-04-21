@@ -17,7 +17,9 @@ public class CoinOutputter {
 	public Double eject(final List<Coin> coins){
 		for(final Coin coin : coins){
 			amount += coin.getType().value();
+			System.out.println(">>>>> Ejecting "+coin.getType());
 		}
+		
 		return amount;
 	}
 	

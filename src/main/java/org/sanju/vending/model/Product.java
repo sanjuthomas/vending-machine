@@ -9,7 +9,7 @@ public class Product {
 	
 	private Integer code;
 	private String name;
-	private Double price;
+	private Double price = 0.0;
 	
 	public Integer getCode() {
 		return code;

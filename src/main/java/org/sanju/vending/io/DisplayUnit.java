@@ -8,8 +8,14 @@ package org.sanju.vending.io;
  */
 public class DisplayUnit {
 	
-	public void showMessage(final String message){
-		System.out.println(message);
+	/**
+	 * For testing purpose I have added return type
+	 * 
+	 * @param message
+	 * @return
+	 */
+	public String showMessage(final String message){
+		return message;
 	}
 
 }

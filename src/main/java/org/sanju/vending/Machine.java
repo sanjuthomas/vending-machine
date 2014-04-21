@@ -4,7 +4,7 @@ import org.sanju.vending.external.CoinDetector;
 import org.sanju.vending.io.CoinInputter;
 import org.sanju.vending.io.CoinOutputter;
 import org.sanju.vending.io.DisplayUnit;
-import org.sanju.vending.io.ProductSelector;
+import org.sanju.vending.io.Keyboard;
 import org.sanju.vending.state.MachineState;
 import org.sanju.vending.validator.CoinValidator;
 
@@ -19,7 +19,7 @@ public class Machine {
 	private CoinInputter coinInputter = new CoinInputter(new CoinValidator(), new CoinDetector());
 	private CoinOutputter coinOutputter = new CoinOutputter();
 	private DisplayUnit displayUnit = new DisplayUnit();
-	private ProductSelector productSelector = new ProductSelector();
+	private Keyboard keyboard = new Keyboard();
 	
 	public Machine(){
 		displayUnit.showMessage(machineState.getMessage());

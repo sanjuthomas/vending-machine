@@ -20,11 +20,11 @@ public class MachineState {
 		return state.getMessage();
 	}
 	
-	public void setCurrentProductSelected(final Product product){
+	public void setSelectedProduct(final Product product){
 		this.product = product;
 	}
 	
-	public Product getCurrentProductSelected(){
+	public Product getSelectedProduct(){
 		return product;
 	}
 

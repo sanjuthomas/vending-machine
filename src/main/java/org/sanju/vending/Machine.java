@@ -1,10 +1,12 @@
 package org.sanju.vending;
 
+import org.sanju.vending.exception.InvalidCoinException;
 import org.sanju.vending.external.CoinDetector;
 import org.sanju.vending.io.CoinInputter;
 import org.sanju.vending.io.CoinOutputter;
 import org.sanju.vending.io.DisplayUnit;
 import org.sanju.vending.io.Keyboard;
+import org.sanju.vending.model.Coin;
 import org.sanju.vending.state.MachineState;
 import org.sanju.vending.validator.CoinValidator;
 
@@ -34,4 +36,8 @@ public class Machine {
 		return displayUnit.showMessage(machineState.getMessage());
 	}
 	
+	
+	public void acceptCoin(final Coin coin) throws InvalidCoinException{
+		coinInputter.accept(coin);
+	}
 }

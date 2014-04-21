@@ -1,13 +1,15 @@
 package org.sanju.vending;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.sanju.vending.enums.CoinType;
-import org.sanju.vending.enums.State;
 import org.sanju.vending.exception.InvalidCoinException;
+import org.sanju.vending.exception.ProductOutOfStockException;
 import org.sanju.vending.model.Coin;
+import org.sanju.vending.model.Product;
 
 /**
  * 
@@ -23,19 +25,39 @@ public class TestMachine {
 		machine = new Machine();
 	}
 	
-	@Test
-	public void shouldShowTheDefaultMessage(){
-		assertEquals(State.NO_CHANGE_DEFAULT.getMessage(), machine.getCurrentMessage());
-	}
-	
 	@Test(expected = InvalidCoinException.class)
 	public void shouldRejectPenny() throws InvalidCoinException{
 		final Coin coin = new Coin(CoinType.PENNY);
 		machine.acceptCoin(coin);
 	}
 	
+	@Test(expected = ProductOutOfStockException.class)
+	public void shouldThrowProductOutOfStockException() throws ProductOutOfStockException{
+		machine.getKeyboard().one();
+	}
+	
 	@Test
-	public void shouldSelectProduct(){
+	public void shouldCancelProductSelection() throws ProductOutOfStockException, InvalidCoinException{
+		setupCola();
+		machine.getKeyboard().one();
+		final Coin coin = new Coin(CoinType.QUARTER);
+		machine.acceptCoin(coin);
+		machine.getKeyboard().cancel();
+	}
+	
+	/**
+	 * 
+	 */
+	private void setupCola(){
 		
+		final List<Product> products = new ArrayList<Product>();
+		final Product product = new Product();
+		product.setCode(1);
+		product.setName("Cola");
+		product.setPrice(1.0);
+		for(int i=0; i<5; i++){
+			products.add(product);
+		}
+		machine.loadProducts(products);
 	}
 }

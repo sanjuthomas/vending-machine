@@ -10,10 +10,10 @@ import java.util.List;
  */
 public enum CoinType {
 	
-	 PENNY(1.0),
-     NICKEL(5.0),
-     DIME(10.0),
-     QUARTER(25.0);
+	 PENNY(0.1),
+     NICKEL(0.5),
+     DIME(0.10),
+     QUARTER(0.25);
 
      private Double coinValue;
 

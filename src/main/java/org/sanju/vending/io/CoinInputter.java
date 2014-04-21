@@ -38,12 +38,11 @@ public class CoinInputter {
 		return currentAmount;
 	}
 	
-	public void eject(){
-		
-	}
-	
-	public void eject(final Double amout){
-		
+	public List<Coin> returnMoney(){
+		List<Coin> temp = coins;
+		coins = new ArrayList<Coin>();
+		currentAmount = new Double(0.0);
+		return temp;
 	}
 
 }

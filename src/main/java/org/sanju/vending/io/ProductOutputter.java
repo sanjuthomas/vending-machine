@@ -9,8 +9,8 @@ import org.sanju.vending.model.Product;
  */
 public class ProductOutputter {
 	
-	public void eject(final Product product){
-		
+	public Product eject(final Product Product){
+		return Product;
 	}
 
 }

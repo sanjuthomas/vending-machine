@@ -17,7 +17,7 @@ public class CoinDetector {
 	 * @return
 	 */
 	public CoinType detect(final Coin coin){
-		return coin.getCoinType();
+		return coin.getType();
 	}
 	
 	public Double getCoinValue(final Coin coin){

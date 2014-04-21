@@ -17,7 +17,7 @@ public class CoinValidator {
 	 */
 	public Boolean validate(final Coin coin){
 		
-		return CoinType.getValidCoinTypes().contains(coin.getCoinType());
+		return CoinType.getValidCoinTypes().contains(coin.getType());
 	}
 
 }

@@ -16,7 +16,7 @@ public class CoinOutputter {
 	
 	public Double eject(final List<Coin> coins){
 		for(final Coin coin : coins){
-			amount += coin.getCoinType().value();
+			amount += coin.getType().value();
 		}
 		return amount;
 	}

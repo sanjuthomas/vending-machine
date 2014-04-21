@@ -1,6 +1,7 @@
 package org.sanju.vending.state;
 
 import org.sanju.vending.enums.State;
+import org.sanju.vending.model.Product;
 
 /**
  * 
@@ -9,11 +10,20 @@ import org.sanju.vending.enums.State;
  */
 public class MachineState {
 	
-	private State state = State.DEFAULT;
+	private State state = State.NO_CHANGE_DEFAULT;
+	
+	private Product product;
 
-	public static String getMessage() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getMessage() {
+		return state.getMessage();
+	}
+	
+	public void setCurrentProductSelected(final Product product){
+		this.product = product;
+	}
+	
+	public Product getCurrentProductSelected(){
+		return product;
 	}
 	
 }

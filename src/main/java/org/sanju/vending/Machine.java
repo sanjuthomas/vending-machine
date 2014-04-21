@@ -13,8 +13,5 @@ public class Machine {
 	
 	private MachineState machineState;
 	
-	private CoinInputter coinInputter;
-	
-	
 	
 }

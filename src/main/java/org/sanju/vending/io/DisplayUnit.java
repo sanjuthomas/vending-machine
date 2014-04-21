@@ -1,6 +1,5 @@
 package org.sanju.vending.io;
 
-import org.sanju.vending.state.MachineState;
 
 /**
  * 
@@ -9,14 +8,8 @@ import org.sanju.vending.state.MachineState;
  */
 public class DisplayUnit {
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public String getMessage(){
-		return MachineState.getMessage();
+	public void showMessage(final String message){
+		System.out.println(message);
 	}
-	
-	
 
 }

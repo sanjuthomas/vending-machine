@@ -9,14 +9,14 @@ import org.sanju.vending.enums.CoinType;
  */
 public class Coin {
 	
-	private CoinType coinType;
+	private CoinType type;
 	
 	public Coin(final CoinType coinType){
-		this.coinType = coinType;
+		this.type = coinType;
 	}
 
-	public CoinType getCoinType() {
-		return coinType;
+	public CoinType getType() {
+		return type;
 	}
 
 }

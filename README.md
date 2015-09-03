@@ -1,7 +1,7 @@
 Vending Machine Kata – Java
 
-problem : https://github.com/guyroyse/vending-machine-kata
+Problem Desription: https://github.com/guyroyse/vending-machine-kata
 
-solution author :  sanju@sanju.org
-
+@Author: Sanju Thomas
+@Contact: sanju@sanju.org
 
